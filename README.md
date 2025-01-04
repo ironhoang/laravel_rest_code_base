@@ -79,6 +79,10 @@ php artisan db:seed
 php artisan test
 ```
 
+![unittest result](documents/unittest.png)
+
+## [APIs](documents/rest_code_base.postman_collection.json)
+
 ### Public APIs (No Login Required)
 
 * Register
