@@ -4,7 +4,6 @@ namespace Tests;
 
 use App\Models\Role;
 use App\Models\User;
-use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
@@ -46,10 +45,6 @@ abstract class TestCase extends BaseTestCase
 		$accessToken = $response->json('response')['data']['access_token'];
 		$response = $this->get('/api/v1/profile', ['Authorization' => 'bearer ' . $accessToken]);
 		$this->userId = $response->json('id');
-		$dataSeed = new DatabaseSeeder();
-		$dataSeed->seedingBodyMetric($this->userId);
-		$dataSeed->seedingDailyMeals($this->userId);
-		$dataSeed->seedingDailyExercises($this->userId);
 		
 		
 		return $accessToken;

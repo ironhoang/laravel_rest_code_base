@@ -1,4 +1,4 @@
-### Project Hoang Quoc Khanh - Project Arent test
+### Project Laravel codebase
 
 [Contact email](mailto:ironhoang@gmail.com)
 
@@ -30,7 +30,7 @@ CodeBase from https://github.com/sMmominur/restapi-laravel.git
 1. Clone the Project
 
 ```bash
-   git clone git@github.com:ironhoang/arent_test.git
+   git@github.com:ironhoang/laravel_rest_code_base.git
  ```
 
 2. Set Up Environment File
@@ -79,10 +79,6 @@ php artisan db:seed
 php artisan test
 ```
 
-![unittest result](documents/unittest-result.png)
-
-## [APIs](documents/arent_test.postman_collection.json)
-
 ### Public APIs (No Login Required)
 
 * Register
@@ -117,78 +113,6 @@ GET: api/v1/profile
 PUT: api/v1/profile
 ```
 
-#### Create Daily Meals
-
-```
-POST: api/v1/my_daily_meals
-```
-
-#### Fetch Daily Meals
-
-```
-GET: api/v1/my_daily_meals
-```
-
-#### Fetch Daily Exercise Targets
-
-```
-GET: api/v1/my_targets
-```
-
-#### Create/Update Daily Exercise Targets
-
-```
-POST: api/v1/my_targets
-```
-
-#### Fetch Body Metrics
-
-```
-GET: api/v1/my_body_metrics?per_page=50&order=date&direction=desc
-```
-
-## Suggested API Usage for Screens
-
-### Top Page (After Login)
-
-#### Section: Date/Achievement Rate
-
-use api field `achievement_rate`:
-
-```
-GET: api/v1/profile
-```
-
-Note: If no data is available for today, fetch data from the nearest previous date.
-
-#### Section: BMI Chart
-
-```
-GET: api/v1/my_body_metrics?per_page=50&order=date&direction=desc
-```
-
-#### Section: BMI Chart
-
-```
-GET: api/v1/my_daily_meals
-```
-
-You can add the `order=date` parameter to display the most recent information.
-
-### MyRecord Screen
-
-Similar to the Top Page, with an additional Section: My Exercises:
-
-```
-GET: api/v1/my_targets
-```
-
-#### MyDiary Section
-
-The requirements are unclear, but the above APIs may be used as needed.
-
-### Column Screen
-
 Use the API to fetch posts:
 
 ```
@@ -207,22 +131,4 @@ api/v1/categories
 
 ```
 api/v1/posts
-```
-
-### Body Metrics CRUD
-
-```
-api/v1/body_metrics
-```
-
-### Daily Meals CRUD
-
-```
-api/v1/daily_meals
-```
-
-### Daily Exercises CRUD
-
-```
-api/v1/daily_exercises
 ```

@@ -40,7 +40,5 @@ class UserControllerTest extends TestCase
 		);
 		$data = $response->json();
 		$response->assertStatus(200);
-		static::assertEquals($data['weight'], $dataInput['weight']);
-		static::assertEquals($data['body_metric']['bmi'], 27.7);
 	}
 }
