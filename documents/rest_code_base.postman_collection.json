@@ -125,7 +125,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"email\":\"admin@example.com\",\"password\":\"Testtest\"}"
+							"raw": "{\"email\":\"admin@example.com\",\"password\":\"TestAdmin\"}"
 						},
 						"url": {
 							"raw": "{{url}}api/auth/login",
@@ -187,8 +187,7 @@
 									{
 										"key": "Authorization",
 										"value": "Bearer {{token}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									}
 								],
 								"url": {
@@ -274,18 +273,23 @@
 									{
 										"key": "Authorization",
 										"value": "Bearer {{token}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{url}}api/v1/categories",
+									"raw": "{{url}}api/v1/categories?per_page=10",
 									"host": [
 										"{{url}}api"
 									],
 									"path": [
 										"v1",
 										"categories"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "10"
+										}
 									]
 								}
 							},
@@ -310,24 +314,14 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "content",
-											"value": "iron test content 2",
-											"type": "text"
-										},
-										{
-											"key": "title",
-											"value": "title test",
-											"type": "text"
-										},
-										{
-											"key": "category_id",
-											"value": "2",
+											"key": "name",
+											"value": "Category test 2",
 											"type": "text"
 										},
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/Users/nexusfrontiertech/Downloads/heo-2.jpg"
+											"src": "/Users/nexusfrontiertech/Downloads/anh0che.jpg"
 										}
 									]
 								},

@@ -1,11 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BodyMetricController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DailyExerciseController;
-use App\Http\Controllers\DailyMealController;
-use App\Http\Controllers\IPController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PublicPostController;
 use App\Http\Controllers\RoleController;
@@ -39,12 +35,6 @@ Route::group(['middleware' => ['ip-whitelist', 'api', 'jwt-verify'], 'prefix' =>
 	
 	Route::get('/profile', [UserController::class, 'getProfile']);
 	Route::put('/profile', [UserController::class, 'updateProfile']);
-	Route::post('/my_targets', [UserController::class, 'setTarget']);
-	Route::post('/my_daily_meals', [UserController::class, 'addMyMeal']);
-	
-	Route::get('/my_targets', [UserController::class, 'myTargets']);
-	Route::get('/my_body_metrics', [UserController::class, 'myBodyMetrics']);
-	Route::get('/my_daily_meals', [UserController::class, 'myDailyMeals']);
 	
 });
 

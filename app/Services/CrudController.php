@@ -45,7 +45,7 @@ class CrudController extends Controller
 				
 				$fileName = uniqid() . '.' . $file->getClientOriginalExtension();
 				
-				$path = $file->storeAs('arent', $fileName, 's3');
+				$path = $file->storeAs('file', $fileName, 's3');
 				$originalName = $file->getClientOriginalName();
 				$size = $file->getSize();
 				$mediaType = $file->getMimeType();
@@ -72,7 +72,6 @@ class CrudController extends Controller
 				$file = File::create($imageData);
 				$inputData['file_id'] = $file->id;
 			}
-			
 			$item = $this->model::create($inputData);
 			return (new $this->resource($item))->additional($this->preparedResponse('store'));
 		} catch (QueryException $queryException) {
