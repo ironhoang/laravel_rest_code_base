@@ -28,10 +28,9 @@ trait Filterable
 			}
 			
 		}
-		
 		foreach ($conditions as $key => $column) {
-			if ($request->filled($key)) {
-				$query->where($column, $request->input($key));
+			if ($request->filled($column)) {
+				$query->where($column, $request->input($column));
 			}
 		}
 		$requestParam = $request->all();
