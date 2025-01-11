@@ -39,6 +39,10 @@ CodeBase from https://github.com/sMmominur/restapi-laravel.git
 cp -r .env.example .env
 ```
 
+```
+composer install
+```
+
 Update the .env file with AWS keys, region, and bucket information.
 
 3. Generate JWT Key
