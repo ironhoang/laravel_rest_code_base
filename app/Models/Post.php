@@ -19,15 +19,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Carbon\Carbon            $created_at
  * @property \Carbon\Carbon            $updated_at
  *
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereTitle($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereContent($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereFileId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereCategoryId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereFile($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereCategory($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereFileId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereCategoryId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereFile($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereCategory($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Post extends Base
