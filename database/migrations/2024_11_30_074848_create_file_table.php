@@ -15,7 +15,7 @@ class CreateFileTable extends Migration
 			$table->string('entity_type');
 			$table->integer('entity_id');
 			$table->boolean('is_local');
-			$table->integer('file_category_type');
+			$table->string('file_category_type');
 			$table->string('s3_key');
 			$table->string('s3_bucket');
 			$table->string('s3_region');
