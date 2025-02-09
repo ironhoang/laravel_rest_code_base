@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Dto\CollectionWithCount;
 use App\Models\Base;
 use App\Repositories\Contracts\BaseRepositoryInterface;
 use App\Utils\StringUtility;
@@ -162,6 +161,9 @@ class BaseRepository implements BaseRepositoryInterface
 			$direction = empty($direction) ? 'asc' : $direction;
 			$query = $query->orderBy($order, $direction);
 		}
+		if ($order == 'id') {
+			return $query;
+		}
 		
 		return $query->orderBy('id');
 	}
@@ -173,7 +175,7 @@ class BaseRepository implements BaseRepositoryInterface
 		return $query->count();
 	}
 	
-	public function getByFilterWithCount(array $filter, array $filterColumns, string $order = 'id', string $direction = 'asc', int $offset = 0, int $limit = 20, int $before = 0, int $after = 0): CollectionWithCount
+	public function getByFilterWithCount(array $filter, array $filterColumns, string $order = 'id', string $direction = 'asc', $perPage = 10)
 	{
 		$query = $this->buildQueryByFilter($this->getBaseQuery(), $filter);
 		foreach ($filterColumns as $filterColumn) {
@@ -183,13 +185,15 @@ class BaseRepository implements BaseRepositoryInterface
 				unset($filter[$filterColumn]);
 			}
 		}
-		$query = $this->setBefore($query, $order, $direction, $before);
-		$query = $this->setAfter($query, $order, $direction, $after);
 		$query = $this->buildOrder($query, $filter, $order, $direction);
+		$items = $query->get();
 		$count = $query->count();
-		$collection = $query->skip($offset)->take($limit)->get();
 		
-		return new CollectionWithCount($collection, $count);
+		if ($count > $perPage) {
+			return $query->paginate($perPage);
+		} else {
+			return $items;
+		}
 	}
 	
 	protected function buildLikeQueryByFilterColumn(Builder|Base|EloquentBuilder $query, array|string $searchWords, $filterColumn): Builder|Base|EloquentBuilder

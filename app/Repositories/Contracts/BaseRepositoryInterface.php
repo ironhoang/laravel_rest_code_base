@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Repositories\Contracts;
 
-use App\Dto\CollectionWithCount;
 use Illuminate\Database\Eloquent\Collection;
 
 interface BaseRepositoryInterface
@@ -24,5 +23,5 @@ interface BaseRepositoryInterface
 	
 	public function countByFilter($filter): int;
 	
-	public function getByFilterWithCount(array $filter, array $filterColumns, string $order = 'id', string $direction = 'asc', int $offset = 0, int $limit = 20, int $before = 0, int $after = 0): CollectionWithCount;
+	public function getByFilterWithCount(array $filter, array $filterColumns, string $order = 'id', string $direction = 'asc', $perPage = 10);
 }
